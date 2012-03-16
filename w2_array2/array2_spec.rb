@@ -176,11 +176,12 @@ describe Array2 do
   end
 
   describe '#reverse' do
+    #I know it's not exactly what you want. Doubts
     let(:reverse_array){Array2.new()}
     it 'return new array with elements in inverse orden' do
       array2.reverse(reverse_array)
       array2.length.should eq 8
-      array2.elements.should eq [8, 4,'c' ,3, 'b',2 ,'a', 1]
+      reverse_array.elements.should eq [8, 4,'c' ,3, 'b',2 ,'a', 1]
     end
   end
 

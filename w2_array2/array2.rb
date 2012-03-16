@@ -101,8 +101,8 @@ class Array2
 
   def reverse(reverse_array)
     index =  length - 1
-    while index > 0  do
-      reverse_array.insert(reverse_array.length,self.at(index))
+    while index >= 0 do
+      reverse_array.append(at(index))
       index -=1
     end
     reverse_array
