@@ -22,7 +22,7 @@ class Array2
     @elements.delete_at(index)
   end
   
-  def empty
+  def empty?
     @elements.length == 0    
   end
 
@@ -47,7 +47,7 @@ class Array2
        delete_at(indice)
        indice -=1
     end
-   #no return nil!! Return object [] :(  
+    self
   end
 
   def delete(object)
@@ -99,13 +99,58 @@ class Array2
     self
   end
 
-  def reverse(reverse_array)
+  def reverse
+    reversed_array = Array2.new
     index =  length - 1
     while index >= 0 do
-      reverse_array.append(at(index))
+      reversed_array.append(at(index))
       index -=1
     end
-    reverse_array
+    reversed_array
   end
 
+  def join_separator(separator)
+    array_string = ""
+    index = 0 
+    until index == length - 1 
+      array_string = array_string + at(index).to_s + separator
+      index += 1
+    end
+    array_string = array_string + at(index).to_s 
+    array_string
+  end
+
+  def first(n=1)
+    return nil if empty? 
+    return at(0) unless empty? or n > 1
+    temp = Array2.new
+    for index in (0..n-1) do
+      temp.insert(index, at(index))
+    end
+    puts temp
+    temp
+  end
+
+  def last(n=1)
+    return nil if empty?  
+    return at(length-1) unless empty? or n > 1 
+    temp = Array2.new
+    index = 1 
+    until index > n
+      temp.append(at(length-index))
+      index += 1
+    end
+    temp
+  end
+
+  def rotate(n=1)
+   return nil if empty?
+   index = 0
+   while index < n do
+     append(at(0))
+     delete(at(0))
+     index +=1
+   end
+   self
+  end
 end

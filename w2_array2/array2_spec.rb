@@ -1,6 +1,4 @@
-  $: << File.expand_path(File.dirname(__FILE__))
-
-  require 'array2'
+require_relative 'array2'
 
 describe Array2 do
 
@@ -75,14 +73,13 @@ describe Array2 do
   end
 
   describe '#empty' do
-    
     it 'returns false if there are elements' do
-      array2.empty.should eq false
+      array2.empty?.should eq false
     end
 
     it 'returns true if no elements' do
       array2 = Array2.new()
-      array2.empty.should eq true
+      array2.empty?.should eq true
     end
 
   end 
@@ -113,14 +110,12 @@ describe Array2 do
   describe '#clear' do
     it 'deletes all elements if array has got some elements' do
       array2.clear()
-      array2.empty.should eq true
+      array2.should be_empty
     end
 
-   # it 'return nil if array is empty' do
-    # array2 = Array2.new()
-    #  array2.clear().should eq nil
-   # end
-    #
+    it 'returns self' do
+      array2.clear.should be array2
+    end
   end
   
 
@@ -176,12 +171,60 @@ describe Array2 do
   end
 
   describe '#reverse' do
-    #I know it's not exactly what you want. Doubts
-    let(:reverse_array){Array2.new()}
     it 'return new array with elements in inverse orden' do
-      array2.reverse(reverse_array)
+      array2.reverse.elements.should eq [8, 4,'c' ,3, 'b',2 ,'a', 1]
       array2.length.should eq 8
-      reverse_array.elements.should eq [8, 4,'c' ,3, 'b',2 ,'a', 1]
+    end
+  end
+
+
+  describe '#joinseparator' do
+    it 'return new string with elements array separated by separador' do
+      array2.join_separator(",").should eq "1,a,2,b,3,c,4,8" 
+    end
+  end
+
+
+  describe '#first' do
+    let(:array3) {Array2.new()}
+    it 'return nil if array is empty' do
+      array3.first(1).should be nil
+    end
+
+    it 'return first element of array if array is not empty and n =1' do
+      array2.first(1).should eq 1 
+    end
+
+    it 'return first elements of array if array is not empty' do
+      array2.first(2).elements.should eq [1,'a']
+    end
+  end 
+
+
+  describe '#last' do
+    let(:array3) {Array2.new()}
+    it 'return nil if array is empty' do
+      array3.last(1).should be nil
+    end
+
+    it 'return last element of array if array is not empty and n =1' do
+      array2.last(1).should eq 8 
+    end
+
+    it 'return last elements of array if array is not empty' do
+      array2.last(2).elements.should eq [8,4]
+    end
+  end 
+
+
+  describe '#rotate' do
+    it 'return new array with elements n times shifted to left and append in the array' do
+      array2.rotate(1).elements.should eq ['a',2,'b',3,'c',4,8,1]
+    end
+
+    let(:array3) {Array2.new()}
+    it 'return nil if array is empty' do
+      array3.rotate(1).should be nil
     end
   end
 
