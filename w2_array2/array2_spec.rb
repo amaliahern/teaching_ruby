@@ -227,5 +227,4 @@ describe Array2 do
       array3.rotate(1).should be nil
     end
   end
-
 end
