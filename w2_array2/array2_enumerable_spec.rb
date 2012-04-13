@@ -80,4 +80,59 @@ describe Array2 do
     end
   end
 
+  describe '#each_with_index' do
+    it 'returns a new hash with item and index' do
+      hash = Hash.new
+      array3.each_with_index { |item, index| 
+        hash[item] = index 
+      }
+      hash.first[0].should eq 1
+    end
+  end
+
+  describe '#each_with_object' do
+    it 'returns without object new array with the result yield' do
+      array_object = []
+      array_object = array3.each_with_object([]) { |element| element  + 1 }
+      array_object.elements.should eq [ 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+    end
+
+    it 'returns with object new array with object plus the result yield' do
+      array_object = []
+      array_object = array3.each_with_object(['a','b']) { |element| element  + 1 }
+      array_object.elements.should eq [ 'a', 'b', 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+    end
+  end
+
+  describe '#select' do
+    it 'returns new array with result yield true' do
+      array_select = []
+      array_select = array3.select { |element| element % 5 == 0 }
+      array_select.elements.should eq [5]
+    end
+  end
+
+  describe '#find_index' do
+    it 'returns nil if yield results false' do
+      array3.find_index { |element| element % 7 == 0 and element % 5 == 0 }.should eq nil
+    end
+
+    it 'returns index for the first yield results true' do
+      array3.find_index { |element|  element % 5 == 0 }.should eq 4 
+    end
+  end
+
+  describe '#grep' do
+    it 'returns empty array if pattern does not find' do
+      array_grep = []
+      array_grep =  array3.grep(20) { |element| element == 20 }
+      array3.grep(20).elements.should eq []
+    end 
+
+    it 'returns array with the elements are in the pattern' do
+      array_grep = []
+      array_grep =  array3.grep(5) { |element| element == 5 }
+      array_grep.elements.should eq [5]
+    end
+  end
 end

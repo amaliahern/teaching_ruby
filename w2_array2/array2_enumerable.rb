@@ -49,4 +49,36 @@ class Array2
     
   end
 
+  def each_with_index
+    hash = Hash.new
+    elements.each { |elem| hash[length] = yield elem }
+    hash
+  end
+
+  def each_with_object(object)
+    arr = Array2.new
+    object.each { |obj| arr.append(obj) } unless object == nil
+    elements.each { |element| arr.append(yield element) }
+    arr
+  end
+
+  def select
+    arr = Array2.new  
+    elements.each { |element| arr.append(element) if yield element }
+    arr
+  end
+
+  def find_index
+    index = -1
+    elements.each { |element| index +=1 
+                              return index if yield element                              
+    }  
+    nil
+  end
+
+  def grep(pattern)
+    arr = Array2.new
+    elements.each { |element| arr.append(element) if yield element == pattern }
+    arr
+  end
 end
