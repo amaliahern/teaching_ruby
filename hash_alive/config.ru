@@ -1,4 +1,4 @@
 require 'rubygems'
-require File.join(File.dirname(__FILE__), 'lib/hash_alive.rb')
+require File.join(File.dirname(__FILE__),'hashalive.rb')
 
 run HashAlive
