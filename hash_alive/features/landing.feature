@@ -5,4 +5,3 @@ Feature: Showing landing page
 
   Scenario: Landing page
     Given I am on landing page
-    Then I should see "Welcome to Hash Alive!"
