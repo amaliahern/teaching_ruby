@@ -5,6 +5,4 @@ Feature: Showing landing page
 
   Scenario: Showing landing page
     Given I am on landing page
-
-  Scenario: Showing landing page
-    Then I should see Welcome to hash alive!
+    Then I should see Welcome to Hash Alive!
