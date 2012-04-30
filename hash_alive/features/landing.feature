@@ -3,5 +3,8 @@ Feature: Showing landing page
   As an apprentice
   I want to show landing hash methods page
 
-  Scenario: Landing page
+  Scenario: Showing landing page
     Given I am on landing page
+
+  Scenario: Showing landing page
+    Then I should see Welcome to hash alive!
