@@ -6,3 +6,8 @@ Feature: Showing landing page
   Scenario: Showing landing page
     Given I am on landing page
     Then I should see Welcome to Hash Alive!
+
+  Scenario: Showing delete method
+    Given I am on landing page
+    Then I should see "Delete Method" in a link
+
