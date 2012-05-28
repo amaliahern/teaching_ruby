@@ -6,7 +6,17 @@ require 'sinatra/base'
      erb :landing
    end
 
-   get '/delete' do
-     "Welcome to Delete Hash Method!"
+   get '/hash' do
+     erb :landing
+   end
+
+   get '/hash/delete' do
+     @hashparam = params["key"] 
+     erb :delete
+   end
+
+   get '/hash/delete/:key' do
+     @hashparam = params["key"] 
+     erb :delete
    end
  end
