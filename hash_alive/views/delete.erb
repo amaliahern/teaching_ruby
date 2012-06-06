@@ -6,6 +6,17 @@
   <body>
     <h1> Welcome to Delete Hash Method!<h1>
         <p>
+        Delete hash method: delete and returns a key-value pair from hsh whose key is equal to key. If the key is not found, returns the default value. 
+        If the optional code block is given and the key is not found, pass in the key and return the resut of block. 
+        </p>
+        <p>
+        Example:
+        <br>
+          h = { "amalia" => 10, "jorge" => 1 }
+        <br>
+          h.delete("amalia")      #=> 10
+        <br>
+          variable = <%= @hashparam %>    
         </p>
   </body>
 </html>

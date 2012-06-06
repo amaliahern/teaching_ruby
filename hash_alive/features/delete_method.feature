@@ -5,6 +5,5 @@ Feature: Showing Delete Hash Method
 
   Scenario: Showing Delete Hash Method
     Given I am on delete page
-    Then I should see Welcome to Delete Hash Method!
-    And I should see an explanation of what delete method does
+    Then I should see an explanation of what delete method does
 
