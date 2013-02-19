@@ -18,4 +18,5 @@ require 'sinatra/base'
      @hashparam = params["key"] 
      erb :delete
    end
+
  end
