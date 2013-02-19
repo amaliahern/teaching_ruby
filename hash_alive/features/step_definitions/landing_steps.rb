@@ -9,3 +9,7 @@ end
 Then /^I should see "([^"]*)" in a link$/ do |text|
   page.should have_link text
 end
+
+Then /^I could input pairs key\/value$/ do
+    pending # express the regexp above with the code you wish you had
+end

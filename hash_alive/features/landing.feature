@@ -3,11 +3,15 @@ Feature: Showing landing page
   As an apprentice
   I want to show landing hash methods page
 
-  Scenario: Showing landing page
+  Background: 
     Given I am on landing page
+
+  Scenario: Showing landing page
     Then I should see Welcome to Hash Alive!
 
+  Scenario: Creating a hash
+    Then I could input pairs key/value
+
   Scenario: Showing delete method
-    Given I am on landing page
     Then I should see "Delete Method" in a link
 
